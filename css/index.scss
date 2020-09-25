@@ -1,0 +1,929 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  button {
+    border: none;
+    outline: none;
+  }
+}
+#wrap {
+  width: 1920px;
+  height: 1080px;
+  background-size: 100%;
+  background: url("../img/yt-bg.jpg") no-repeat center center;
+  position: relative;
+
+  /* 用户信息 */
+  .user-info {
+    width: 470px;
+    height: 54px;
+    line-height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 27px;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    // display: none;
+    span {
+      vertical-align: middle;
+      font-size: 23px;
+      color: #333;
+    }
+    .icon-head {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+      margin-right: 5px;
+      background-image: url("../img/icon-normal.png");
+      &.vip1 {
+        background: url("../img/icon-vip-buy.png") no-repeat center center;
+      }
+      &.vip2 {
+        background: url("../img/icon-vip-free.png") no-repeat center center;
+      }
+    }
+    #tel {
+      vertical-align: middle;
+      font-size: 24px;
+      color: #333;
+    }
+    .split-line {
+      display: inline-block;
+      width: 2px;
+      height: 30px;
+      background-color: #333;
+      opacity: 0.2;
+      vertical-align: middle;
+      margin: 0 5px;
+    }
+    .icon-dou {
+      display: inline-block;
+      width: 30px;
+      height: 38px;
+      background-image: url("../img/icon-dou.png");
+      margin-right: 5px;
+    }
+    #total {
+      margin-left: 10px;
+      vertical-align: top;
+    }
+  }
+  // 进度条
+  .progress-bar {
+    display: none;
+    width: 392px;
+    height: 50px;
+    background: url("../img/bar-bg.png") no-repeat center center;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    outline: none;
+    #word {
+      font-size: 24px;
+      color: #e6b867;
+      display: block;
+      width: 70px;
+      text-align: center;
+      margin-top: 12px;
+    }
+    .bar-wrap {
+      width: 280px;
+      height: 6px;
+      border-radius: 3px;
+      position: absolute;
+      top: 23px;
+      left: 83px;
+      #bar {
+        display: block;
+        width: 0px;
+        height: 100%;
+        border-radius: 3px;
+        background-color: #56d134;
+      }
+    }
+    div {
+      .day {
+        font-size: 20px;
+        color: #fff;
+        text-shadow: #000 2px 0 0, #000 0 2px 0, #000 -2px 0 0, #000 0 -2px 0;
+        position: absolute;
+        top: -78px;
+      }
+      .box {
+        display: block;
+        width: 91px;
+        height: 91px;
+        position: absolute;
+      }
+      .btn {
+        display: block;
+        width: 76px;
+        height: 38px;
+        position: absolute;
+        background: url("../img/btn-openbox.png") no-repeat center center;
+        &.active {
+          background: url("../img/btn-openbox-focus.png") no-repeat center center;
+        }
+      }
+      .btn:focus {
+        background: url("../img/btn-openbox-focus.png") no-repeat center center;
+      }
+      &.day_1 {
+        .day {
+          left: 108px;
+        }
+        .box {
+          background: url("../img/box1.png") no-repeat center center;
+          top: -72px;
+          left: 90px;
+          &.opened {
+            background: url("../img/box1-open.png") no-repeat center center;
+          }
+        }
+        .btn {
+          top: 6px;
+          left: 98px;
+        }
+      }
+      &.day_2 {
+        .day {
+          left: 198px;
+        }
+        .box {
+          background: url("../img/box2.png") no-repeat center center;
+          top: -72px;
+          left: 180px;
+          &.opened {
+            background: url("../img/box2-open.png") no-repeat center center;
+          }
+        }
+        .btn {
+          top: 6px;
+          left: 188px;
+        }
+      }
+      &.day_3 {
+        .day {
+          left: 286px;
+        }
+        .box {
+          background: url("../img/box3.png") no-repeat center center;
+          top: -72px;
+          left: 270px;
+          &.opened {
+            background: url("../img/box3-open.png") no-repeat center center;
+          }
+        }
+        .btn {
+          top: 6px;
+          left: 278px;
+        }
+      }
+    }
+  }
+
+  .btns-box {
+    position: absolute;
+    top: 725px;
+    width: 1530px;
+    display: flex;
+    justify-content: flex-end;
+    .cd {
+      width: 310px;
+      height: 101px;
+      margin-right: 40px;
+      background: url("../img/btn-cd.png") no-repeat center;
+    }
+    .cd:focus {
+      background: url("../img/btn-cd-active.png") no-repeat center;
+    }
+    .cd.active {
+      background: url("../img/btn-cd-active.png") no-repeat center;
+    }
+    .cd:disabled {
+      background: url("../img/btn-cd-disabled.png") no-repeat center;
+    }
+    .my-prize {
+      width: 310px;
+      margin-right: 40px;
+      height: 101px;
+      background: url("../img/btn-prize.png") no-repeat center;
+    }
+    .my-prize:focus {
+      background: url("../img/btn-prize-active.png") no-repeat center;
+    }
+    .my-prize.active {
+      background: url("../img/btn-prize-active.png") no-repeat center;
+    }
+    .my-prize:disabled {
+      background: url("../img/btn-prize-disabled.png") no-repeat center;
+    }
+
+    .rule {
+      position: absolute;
+      bottom: -100px;
+      right: 38px;
+      width: 310px;
+      height: 101px;
+      background: url("../img/btn-rule.png") no-repeat center;
+    }
+    .rule:focus {
+      width: 310px;
+      height: 101px;
+      background: url("../img/btn-rule-active.png") no-repeat center;
+    }
+    .rule.active {
+      width: 310px;
+      height: 101px;
+      background: url("../img/btn-rule-active.png") no-repeat center;
+    }
+
+    .rabit {
+      position: absolute;
+      bottom: -214px;
+      right: -88px;
+      width: 150px;
+      height: 175px;
+      background: url("../img/small-rabit.png") no-repeat center;
+      z-index: 10;
+    }
+  }
+
+  .prize-list {
+    position: absolute;
+    right: 84px;
+    top: 202px;
+    width: 300px;
+    height: 800px;
+    ul {
+      li {
+        position: relative;
+        width: 250px;
+        height: 158px;
+        margin: 5px auto;
+        text-align: center;
+        background: url("../img/prize.png") no-repeat center center;
+        .img {
+          position: absolute;
+          left: 65px;
+          top: 16px;
+          height: 80%;
+          background: url("../img/box.png") no-repeat center center;
+        }
+        p {
+          position: absolute;
+          width: 95%;
+          left: 5px;
+          font-size: 24px;
+          color: #fff;
+          bottom: 12px;
+          background: rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+  //弹窗
+  .shadow {
+    width: 1920px;
+    height: 1080px;
+    position: fixed !important;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    z-index: 3;
+    letter-spacing: 1px;
+    .box {
+      // display: none;
+      position: absolute;
+      top: -120px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+    }
+    > div {
+      // display: none;
+      position: absolute;
+      top: -120px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      .btn {
+        display: block;
+        width: 355px;
+        height: 142px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 55px;
+        background-position: center;
+      }
+    }
+
+
+    
+    #nomal {
+      width: 860px;
+      height: 430px;
+      background: url("../img/bj3_09.png");
+      .btn {
+        background: url("../img/btn-true.png") no-repeat center center;
+      }
+      .btn:focus {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.active {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .content {
+        height: 60%;
+        h4 {
+          padding-top: 70px;
+          font-size: 42px;
+          color: #fee9a7;
+          font-weight: bold;
+        }
+        p {
+          padding-top: 10px;
+          font-size: 32px;
+          color: #a0a2b8;
+        }
+        .text-orang {
+          font-size: 24px;
+          color: #f3992f;
+        }
+      }
+    }
+    #notime {
+      width: 860px;
+      height: 430px;
+      background: url("../img/bj3_09.png");
+      .btn {
+        background: url("../img/btn-true.png") no-repeat center center;
+      }
+      .btn:focus {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.active {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.be-vip {
+        background: url("../img/btn-bevip.png") no-repeat center center;
+      }
+      .btn.be-vip:focus {
+        background: url("../img/btn-bevip-active.png") no-repeat center center;
+      }
+      .btn.be-vip.active {
+        background: url("../img/btn-bevip-active.png") no-repeat center center;
+      }
+      .content {
+        height: 60%;
+        padding-top: 60px;
+        p {
+          height: 40px;
+          font-size: 34px;
+          color: #a0a2b8;
+        }
+      }
+    }
+    #prize {
+      width: 1000px;
+      height: 734px;
+      background: url("../img/bj1_03.png");
+      .btn {
+        background: url("../img/btn-true.png") no-repeat center center;
+      }
+      .btn:focus {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.active {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.be-vip {
+        background: url("../img/btn-agin-bevip.png") no-repeat center center;
+      }
+      .btn.be-vip:focus {
+        background: url("../img/btn-agin-bevip-active.png") no-repeat center center;
+      }
+      .btn.be-vip.active {
+        background: url("../img/btn-agin-bevip-active.png") no-repeat center center;
+      }
+      .content {
+        height: 60%;
+        padding-top: 60px;
+        .title {
+          height: 40px;
+          font-size: 46px;
+          color: #feeaa3;
+          font-weight: bold;
+        }
+        .img-box {
+          position: absolute;
+          left: 354px;
+          top: 150px;
+          width: 272px;
+          height: 272px;
+          background: url("../img/box.png") no-repeat center center;
+          img {
+            height: 100%;
+          }
+        }
+        .name {
+          position: absolute;
+          width: 100%;
+          bottom: 250px;
+          font-size: 30px;
+          color: #9ea0b7;
+        }
+      }
+    }
+    #no_prize {
+      width: 1000px;
+      height: 734px;
+      background: url("../img/bj1_03.png");
+      .btn {
+        background: url("../img/btn-true.png") no-repeat center center;
+      }
+      .btn:focus {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.active {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.be-vip {
+        background: url("../img/btn-agin-bevip.png") no-repeat center center;
+      }
+      .btn.be-vip:focus {
+        background: url("../img/btn-agin-bevip-active.png") no-repeat center center;
+      }
+      .btn.be-vip.active {
+        background: url("../img/btn-agin-bevip-active.png") no-repeat center center;
+      }
+      .content {
+        height: 60%;
+        padding-top: 60px;
+        .title {
+          height: 40px;
+          font-size: 46px;
+          color: #feeaa3;
+          font-weight: bold;
+        }
+        .img-box {
+          position: absolute;
+          left: 354px;
+          top: 150px;
+          width: 272px;
+          height: 272px;
+          background: url("../img/small-rabit.png") no-repeat center center;
+          img {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    #my_prize {
+      top: -20px;
+      width: 1569px;
+      height: 886px;
+      background: url("../img/bj5_03.png");
+      .empty {
+        position: absolute;
+        bottom: 44px;
+        left: 350px;
+        width: 1068px;
+        height: 604px;
+        background: url("../img/rabit.png");
+        .text-box {
+          position: absolute;
+          width: 500px;
+          right: 195px;
+          top: 130px;
+          h4 {
+            padding-bottom: 12px;
+            font-size: 40px;
+            color: #fff;
+            font-weight: 400;
+          }
+          p {
+            font-size: 32px;
+            color: #fff;
+            font-weight: 400;
+          }
+        }
+      }
+      .codes {
+        height: 100%;
+        .l {
+          box-sizing: border-box;
+          width: 58%;
+          height: 100%;
+          float: left;
+          padding-left: 278px;
+          .content {
+            position: absolute;
+            bottom: 46px;
+            left: 320px;
+            width: 511px;
+            height: 680px;
+            background: url("../img/rabbit_06.png") no-repeat center center;
+            .text-box {
+              position: absolute;
+              width: 500px;
+              right: 11px;
+              top: 90px;
+              h4 {
+                padding-bottom: 12px;
+                font-size: 40px;
+                color: #fff;
+                font-weight: 400;
+              }
+              p {
+                font-size: 32px;
+                color: #fff;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+        .r {
+          box-sizing: border-box;
+          height: 100%;
+          width: 42%;
+          float: left;
+          .title {
+            position: absolute;
+            width: 600px;
+            top: 176px;
+            font-size: 30px;
+            color: #985b36;
+          }
+          .code-bg {
+            position: absolute;
+            width: 500px;
+            height: 64px;
+            top: 235px;
+            right: 92px;
+            font-size: 30px;
+            background: #e0e5e7;
+            color: #985b36;
+            border-radius: 15px;
+            p {
+              width: 98%;
+              height: 54px;
+              line-height: 54px;
+              border: 1px solid #89989b;
+              margin: 5px;
+              border-radius: 15px;
+              outline: none;
+              background: #aab9be;
+            }
+          }
+          .qr-code {
+            position: absolute;
+            width: 40%;
+            height: 50%;
+            top: 400px;
+            .code-title2 {
+              height: 50px;
+              background: url("../img/code2.png") no-repeat center;
+            }
+            .code {
+              position: absolute;
+              top: 100px;
+              left: 176px;
+              width: 280px;
+              height: 280px;
+              background: #ddd;
+            }
+          }
+        }
+      }
+      .sw {
+        height: 100%;
+        .l {
+          box-sizing: border-box;
+          width: 58%;
+          height: 100%;
+          float: left;
+          padding-left: 278px;
+          .qr-code {
+            position: absolute;
+            width: 40%;
+            height: 50%;
+            top: 400px;
+            .code-title1 {
+              height: 50px;
+              background: url("../img/code.png") no-repeat center;
+            }
+            .code {
+              position: absolute;
+              top: 100px;
+              left: 176px;
+              width: 280px;
+              height: 280px;
+              background: #ddd;
+            }
+          }
+          ul {
+            position: absolute;
+            top: 157px;
+            left: 314px;
+            li {
+              position: relative;
+              padding-left: 40px;
+              font-size: 26px;
+              margin-bottom: 18px;
+              color: #995424;
+            }
+
+            li::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 8px;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background: #98a2a4;
+              transform: translateY(-50%);
+            }
+          }
+        }
+        .r {
+          box-sizing: border-box;
+          height: 100%;
+          width: 42%;
+          float: left;
+          .content {
+            position: absolute;
+            bottom: 46px;
+            right: 120px;
+            width: 511px;
+            height: 680px;
+            background: url("../img/rabbit_06.png") no-repeat center center;
+            .text-box {
+              position: absolute;
+              width: 500px;
+              right: 11px;
+              top: 90px;
+              h4 {
+                padding-bottom: 12px;
+                font-size: 40px;
+                color: #fff;
+                font-weight: 400;
+              }
+              p {
+                font-size: 32px;
+                color: #fff;
+                font-weight: 400;
+              }
+            }
+          }
+          .title {
+            position: absolute;
+            width: 600px;
+            top: 176px;
+            font-size: 30px;
+            color: #985b36;
+          }
+          .code-bg {
+            position: absolute;
+            width: 500px;
+            height: 64px;
+            top: 235px;
+            right: 92px;
+            font-size: 30px;
+            background: #e0e5e7;
+            color: #985b36;
+            border-radius: 15px;
+            p {
+              width: 98%;
+              height: 54px;
+              line-height: 54px;
+              border: 1px solid #89989b;
+              margin: 5px;
+              border-radius: 15px;
+              outline: none;
+              background: #aab9be;
+            }
+          }
+          .qr-code {
+            position: absolute;
+            width: 40%;
+            height: 50%;
+            top: 400px;
+            .code-title2 {
+              height: 50px;
+              background: url("../img/code2.png") no-repeat center;
+            }
+            .code {
+              position: absolute;
+              top: 100px;
+              left: 176px;
+              width: 280px;
+              height: 280px;
+              background: #ddd;
+            }
+          }
+        }
+      }
+      .all {
+        height: 100%;
+        .l {
+          box-sizing: border-box;
+          width: 58%;
+          height: 100%;
+          float: left;
+          padding-left: 278px;
+          .qr-code {
+            position: absolute;
+            width: 40%;
+            height: 50%;
+            top: 400px;
+            .code-title1 {
+              height: 50px;
+              background: url("../img/code.png") no-repeat center;
+            }
+            .code {
+              position: absolute;
+              top: 100px;
+              left: 176px;
+              width: 280px;
+              height: 280px;
+              background: #ddd;
+            }
+          }
+          ul {
+            position: absolute;
+            top: 157px;
+            left: 314px;
+            li {
+              position: relative;
+              padding-left: 40px;
+              font-size: 26px;
+              margin-bottom: 18px;
+              color: #995424;
+            }
+
+            li::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 8px;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              background: #98a2a4;
+              transform: translateY(-50%);
+            }
+          }
+        }
+        .r {
+          box-sizing: border-box;
+          height: 100%;
+          width: 42%;
+          float: left;
+          .title {
+            position: absolute;
+            width: 600px;
+            top: 176px;
+            font-size: 30px;
+            color: #985b36;
+          }
+          .code-bg {
+            position: absolute;
+            width: 500px;
+            height: 64px;
+            top: 235px;
+            right: 92px;
+            font-size: 30px;
+            background: #e0e5e7;
+            color: #985b36;
+            border-radius: 15px;
+            p {
+              width: 98%;
+              height: 54px;
+              line-height: 54px;
+              border: 1px solid #89989b;
+              margin: 5px;
+              border-radius: 15px;
+              outline: none;
+              background: #aab9be;
+            }
+          }
+          .qr-code {
+            position: absolute;
+            width: 40%;
+            height: 50%;
+            top: 400px;
+            .code-title2 {
+              height: 50px;
+              background: url("../img/code2.png") no-repeat center;
+            }
+            .code {
+              position: absolute;
+              top: 100px;
+              left: 176px;
+              width: 280px;
+              height: 280px;
+              background: #ddd;
+            }
+          }
+        }
+      }
+      .btn {
+        bottom: -20px;
+        left: 274px;
+        background: url("../img/btn-true.png") no-repeat center center;
+      }
+
+      .btn:focus {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+    }
+
+    #rule {
+      width: 1000px;
+      height: 734px;
+      background: url("../img/bj1_03.png");
+      .btn {
+        background: url("../img/btn-true.png") no-repeat center center;
+      }
+      .btn:focus {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.active {
+        background: url("../img/btn-true-active.png") no-repeat center center;
+      }
+      .btn.be-vip {
+        background: url("../img/btn-agin-bevip.png") no-repeat center center;
+      }
+      .btn.be-vip:focus {
+        background: url("../img/btn-agin-bevip-active.png") no-repeat center center;
+      }
+      .btn.be-vip.active {
+        background: url("../img/btn-agin-bevip-active.png") no-repeat center center;
+      }
+      .content {
+        height: 72%;
+        padding-top: 60px;
+        padding: 120px 210px 0 210px;
+
+        p {
+          padding-top: 10px;
+          font-size: 32px;
+          color: #a0a2b8;
+        }
+      }
+    }
+  }
+}
+@keyframes bounce-out {
+  0% {
+    transform: rotateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+@keyframes myslider {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-402px);
+    display: none;
+  }
+}
